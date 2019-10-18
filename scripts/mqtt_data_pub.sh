@@ -33,10 +33,13 @@ topic_ping_avg="casa/habitacion/raspberrypi-1/ping_avg"
 topic_ping_max="casa/habitacion/raspberrypi-1/ping_max"
 topic_ping_losts="casa/habitacion/raspberrypi-1/ping_losts"
 
+#Bucle infinito
 while true;
 do
+	#Guardamos resultado de un ping a google
 	ping -c 10 -s 1000 -i 0.2 8.8.8.8 > /tmp/mqtt_ping
 
+	#Almacenamos todos los valores en variables
 	temp=`cat /sys/class/thermal/thermal_zone0/temp | cut -c1,2`
 	n_process=`ps aux | wc -l`
 	cpu_usage=`mpstat | grep -A 5 "%idle" | tail -n 1 | awk -F " " '{print 100 -  $ 12}'a`
@@ -63,6 +66,7 @@ do
 	ping_max=`cat /tmp/mqtt_ping | grep rtt | cut -f2 -d'=' | tr -d 'ms'' ' | cut -f3 -d /`
 	ping_losts=`cat /tmp/mqtt_ping | grep -o [0-9]*% | grep -o [0-9]`
 
+	#Publicamos cada valor al broker por el topic que especificamos
 	echo "temp: $temp"
 	mosquitto_pub -h $mqtt_broker -t $topic_temp -m "$temp"
 	echo "n_process: $n_process"
