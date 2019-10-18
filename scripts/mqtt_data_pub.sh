@@ -6,6 +6,7 @@ sudo nohup python /home/pi/mqtt_broker_database.py &
 #Nuestro servidor MQTT
 mqtt_broker='192.168.1.20'
 
+#Todos los topics
 topic_temp="casa/habitacion/raspberrypi-1/temp"
 topic_n_process="casa/habitacion/raspberrypi-1/n_process"
 topic_cpu_usage="casa/habitacion/raspberrypi-1/cpu_usage"
@@ -31,10 +32,6 @@ topic_ping_min="casa/habitacion/raspberrypi-1/ping_min"
 topic_ping_avg="casa/habitacion/raspberrypi-1/ping_avg"
 topic_ping_max="casa/habitacion/raspberrypi-1/ping_max"
 topic_ping_losts="casa/habitacion/raspberrypi-1/ping_losts"
-
-#touch /tmp/traffic_eth0
-#touch /tmp/traffic_wlan0
-#chmod 777 /tmp/traffic*
 
 while true;
 do
