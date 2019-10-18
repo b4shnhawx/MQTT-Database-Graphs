@@ -65,7 +65,7 @@ try:
 			for repeat in range(numeroDeTopics):
 				corchetes = corchetes + ', {}'
 
-			#toda esta tira de lineas es el comando para meter en la base de datos todos los valores. Los parentesis representan la variable en la posicion que se encuentren en el .format.
+			#toda esta tira de lineas es el comando para meter en la base de datos todos los valores. Los corchetes representan la variable en la posicion que se encuentren en el .format.
 			#por una lado decimos que en la tabla metamos en las columnas fecha, temp, n_process, etc, los valores, fechaString, TopicsValuesDicc.get('temp'), etc. todo de manera sucesiva.
 			cmdSqlSInsert = str("INSERT INTO {} (fecha, temp, n_process, cpu_usage, ram_usage, ram_free, " +
 								"rx_traffic_eth0, tx_traffic_eth0, " +
