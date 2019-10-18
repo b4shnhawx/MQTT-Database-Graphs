@@ -1,7 +1,9 @@
 #!/bin/bash
 
-sudo nohup python /home/pi/scripts/mqtt_broker_database.py &
+#Ejecuta en segundo plano y sin outputs el script de python
+sudo nohup python /home/pi/mqtt_broker_database.py &
 
+#Nuestro servidor MQTT
 mqtt_broker='192.168.1.20'
 
 topic_temp="casa/habitacion/raspberrypi-1/temp"
