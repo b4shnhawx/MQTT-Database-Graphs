@@ -67,64 +67,39 @@ do
 	ping_losts=`cat /tmp/mqtt_ping | grep -o [0-9]*% | grep -o [0-9]`
 
 	#Publicamos cada valor al broker por el topic que especificamos
-	echo "temp: $temp"
 	mosquitto_pub -h $mqtt_broker -t $topic_temp -m "$temp"
-	echo "n_process: $n_process"
 	mosquitto_pub -h $mqtt_broker -t $topic_n_process -m "$n_process"
-	echo "cpu_usage: $cpu_usage"
 	mosquitto_pub -h $mqtt_broker -t $topic_cpu_usage -m "$cpu_usage"
-	echo "ram_usage: $ram_usage"
 	mosquitto_pub -h $mqtt_broker -t $topic_ram_usage -m "$ram_usage"
-	echo "ram_free: $ram_free"
 	mosquitto_pub -h $mqtt_broker -t $topic_ram_free -m "$ram_free"
 
-	echo "rx_traffic_eth0: $rx_traffic_eth0"
 	mosquitto_pub -h $mqtt_broker -t $topic_rx_traffic_eth0 -m "$rx_traffic_eth0"
-	echo "tx_traffic_eth0: $tx_traffic_eth0"
 	mosquitto_pub -h $mqtt_broker -t $topic_tx_traffic_eth0 -m "$tx_traffic_eth0"
 
-	echo "rx_traffic_wlan0: $rx_traffic_wlan0"
 	mosquitto_pub -h $mqtt_broker -t $topic_rx_traffic_wlan0 -m "$rx_traffic_wlan0"
-	echo "tx_traffic_wlan0: $tx_traffic_wlan0"
 	mosquitto_pub -h $mqtt_broker -t $topic_tx_traffic_wlan0 -m "$tx_traffic_wlan0"
 
-	echo "rx_traffic_tun1: $rx_traffic_tun1"
 	mosquitto_pub -h $mqtt_broker -t $topic_rx_traffic_tun1 -m "$rx_traffic_tun1"
-	echo "tx_traffic_tun1: $tx_traffic_tun1"
 	mosquitto_pub -h $mqtt_broker -t $topic_tx_traffic_tun1 -m "$tx_traffic_tun1"
 
-	echo "rx_traffic_tun2: $rx_traffic_tun2"
 	mosquitto_pub -h $mqtt_broker -t $topic_rx_traffic_tun2 -m "$rx_traffic_tun2"
-	echo "tx_traffic_tun2: $tx_traffic_tun2"
 	mosquitto_pub -h $mqtt_broker -t $topic_tx_traffic_tun2 -m "$tx_traffic_tun2"
 
-	echo "rx_bytes_eth0: $rx_bytes_eth0"
 	mosquitto_pub -h $mqtt_broker -t $topic_rx_bytes_eth0 -m "$rx_bytes_eth0"
-	echo "tx_bytes_eth0: $tx_bytes_eth0"
 	mosquitto_pub -h $mqtt_broker -t $topic_tx_bytes_eth0 -m "$tx_bytes_eth0"
 
-	echo "rx_bytes_wlan0: $rx_bytes_wlan0"
 	mosquitto_pub -h $mqtt_broker -t $topic_rx_bytes_wlan0 -m "$rx_bytes_wlan0"
-	echo "tx_bytes_wlan0: $tx_bytes_wlan0"
 	mosquitto_pub -h $mqtt_broker -t $topic_tx_bytes_wlan0 -m "$tx_bytes_wlan0"
 
-	echo "rx_bytes_tun1: $rx_bytes_tun1"
 	mosquitto_pub -h $mqtt_broker -t $topic_rx_bytes_tun1 -m "$rx_bytes_tun1"
-	echo "tx_bytes_tun1: $tx_bytes_tun1"
 	mosquitto_pub -h $mqtt_broker -t $topic_tx_bytes_tun1 -m "$tx_bytes_tun1"
 
-	echo "rx_bytes_tun2: $rx_bytes_tun2"
 	mosquitto_pub -h $mqtt_broker -t $topic_rx_bytes_tun2 -m "$rx_bytes_tun2"
-	echo "tx_bytes_tun2: $tx_bytes_tun2"
 	mosquitto_pub -h $mqtt_broker -t $topic_tx_bytes_tun2 -m "$tx_bytes_tun2"
 
-	echo "ping_min: $ping_min"
 	mosquitto_pub -h $mqtt_broker -t $topic_ping_min -m "$ping_min"
-	echo "ping_min: $ping_avg"
 	mosquitto_pub -h $mqtt_broker -t $topic_ping_avg -m "$ping_avg"
-	echo "ping_min: $ping_max"
 	mosquitto_pub -h $mqtt_broker -t $topic_ping_max -m "$ping_max"
-	echo "ping_min: $ping_losts"
 	mosquitto_pub -h $mqtt_broker -t $topic_ping_losts -m "$ping_losts"
 
 	sleep 2
